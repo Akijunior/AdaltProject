@@ -1,0 +1,8 @@
+button, #register {
+    margin-bottom: 2em;
+}
+
+p:first-letter {
+    margin-left: 2em;
+    text-align: justify;
+}

@@ -6,6 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Projeto Adalt</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/footer_align.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -28,10 +30,10 @@
     </ul>
 
     <div class="navbar-fixed">
-        <nav class="green darken-3">
+        <nav class="indigo darken-3">
             <div class="nav-wrapper container">
                 <a href="{% url 'index' %}" class="center">
-                    {% block titulo %}PAVE{% endblock %}
+                    {% block titulo %}AdaltProject{% endblock %}
                 </a>
                 {% if user.is_authenticated %}
                     <a href="#" data-target="menu-mobile" class="sidenav-trigger right">
@@ -73,16 +75,15 @@
     {% block content %}{% endblock %}
 </div>
 
-<footer class="page-footer green darken-3 center">
-    <div class="footer-copyright green darken-3">
+<footer class="page-footer indigo darken-3 center">
+    <div class="footer-copyright indigo darken-3">
         <div class="container">
             <strong class="white-text">&copy; LIMS - Laboratory of Innovation on Multimedia Systems</strong>
         </div>
     </div>
 </footer>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script>
         $(document).ready(function () {
             $(".dropdown-trigger").dropdown({

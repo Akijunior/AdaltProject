@@ -17,7 +17,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
         (6, 'Programação'),
     )
 
-    nome_completo = models.CharField('Nome coompleto do usuário', max_length=30, unique=True,
+    nome_completo = models.CharField('Nome completo do usuário', max_length=30, unique=True,
                                 validators=[validators.RegexValidator(re.compile('^[\w.@+-]+$'),
                                                                       'O nome do usuário só deve conter letras',
                                                                       'invalid')])

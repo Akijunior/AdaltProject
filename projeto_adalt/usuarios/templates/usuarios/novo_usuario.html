@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-        <h2>Informe abaixo seus dados para cadastro</h2>
-        <form class="pure-form pure-form-stacked" method="post">
-            {% csrf_token %}
-            <fieldset>
-                {{ form.non_field_errors }}
-
-                {% for field in form %}
-                    {{ field.label_tag }}
-                    {{ field }}
-                    {{ field.errors }}
-                {% endfor %}
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
-            </fieldset>
-        </form>
+    {% load material_form %}
+    <h4 class="indigo-text left-align">Informe abaixo seus dados para cadastro</h4>
+    <form class="pure-form pure-form-stacked" method="post">
+        {% csrf_token %}
+        <fieldset>
+            {% form form=form %}{% endform %}
+            <button type="submit" class="btn btn-primary indigo waves-effect waves-light">
+                Cadastrar<i class="material-icons right">send</i></button>
+        </fieldset>
+    </form>
 
 {% endblock %}

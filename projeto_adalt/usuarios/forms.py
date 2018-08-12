@@ -17,22 +17,22 @@ class UsuarioForm(forms.ModelForm):
     )
 
     def clean_password2(self):
-        senha1 = self.cleaned_data.get("password1")
-        senha2 = self.cleaned_data.get("password2")
+        senha1 = self.cleaned_data.get("senha1")
+        senha2 = self.cleaned_data.get("senha2")
         if senha1 and senha2 and senha1 != senha2:
             raise forms.ValidationError('A confirmação não está correta')
         return senha2
 
     def save(self, commit=True):
         user = super(UsuarioForm, self).save(commit=False)
-        user.set_password(self.cleaned_data['password1'])
+        user.set_password(self.cleaned_data['senha1'])
         if commit:
             user.save()
         return user
 
     class Meta:
         model = Usuario
-        fields = '__all__'
+        fields = ('nome_completo', 'email', 'nome_empresa', 'especialidade', 'senha1', 'senha2')
 
 
 
@@ -50,7 +50,7 @@ class PasswordResetForm(forms.Form):
 
     def save(self):
         user = User.objects.get(email=self.cleaned_data['email'])
-        key = generate_hash_key(user.username)
+        key = generate_hash_key(user.email)
         reset = PasswordReset(key=key, user=user)
         reset.save()
         template_name = 'account/password_reset_mail.html'

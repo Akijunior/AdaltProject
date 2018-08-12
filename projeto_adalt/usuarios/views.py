@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth import authenticate, login, get_user_model
@@ -7,6 +8,10 @@ from .models import PasswordReset
 
 User = get_user_model()
 
+@login_required
+def index(request):
+    return render(request, 'index.html')
+
 def novo_usuario(request):
     template_name = 'usuarios/novo_usuario.html'
     form = UsuarioForm(request.POST or None)
@@ -14,7 +19,7 @@ def novo_usuario(request):
         if form.is_valid():
             usuario = form.save()
             usuario = authenticate(
-                username=usuario.username, password=form.cleaned_data['password1']
+                username=usuario.email, password=form.cleaned_data['senha1']
             )
             login(request, usuario)
             return redirect('index')
