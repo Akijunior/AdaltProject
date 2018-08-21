@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load material_form %}
+    <h4 class="indigo-text left-align">Informe abaixo os dados do projeto</h4>
+    <form class="pure-form pure-form-stacked" method="post">
+        {% csrf_token %}
+        <fieldset>
+            {% form form=form %}{% endform %}
+            <button type="submit" class="btn btn-primary indigo waves-effect waves-light">
+                Cadastrar<i class="material-icons right">send</i></button>
+        </fieldset>
+    </form>
+
+{% endblock %}
