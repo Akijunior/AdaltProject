@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load material_form %}
+    <div class="row">
+        <div class="card">
+            {#      <img class="card-img-top img-fluid" src="" alt="Responsive image" />#}
+            <div class="card-body col s6 push-s3 push-s3">
+                <form  method="POST" name="register">
+                    {% csrf_token %}
+                    <fieldset>
+                    <b class="indigo-text darken-3">Login</b>
+                        {% form form=form %}{% endform %}
+                        <button type="submit" class="push-s2 push-s2 col s8 btn-large btn btn-primary indigo waves-effect waves-light">
+                            Entrar<i class="material-icons right">send</i></button>
+                    </fieldset>
+                    <br>
+                    <a href="{% url 'novo_usuario' %}">Cadastre-se agora</a> |
+                    <a href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
