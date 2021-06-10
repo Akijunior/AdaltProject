@@ -1,6 +1,6 @@
 certifi==2018.1.18
 chardet==3.0.4
-Django==2.0.3
+Django==2.2.24
 django-material==1.2.5
 django-rosetta==0.8.1
 fuzzywuzzy==0.16.0
